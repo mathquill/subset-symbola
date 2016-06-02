@@ -1,0 +1,14 @@
+{
+  "name": "subset-symbola",
+  "version": "1.0.0",
+  "description": "Build a subsetted version of the symbola font.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "ttf2woff": "^2.0.1"
+  }
+}
