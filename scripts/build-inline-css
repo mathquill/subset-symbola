@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+var fs = require('fs');
+
+function toDataURI (buf) {
+  return (
+    'data:application/font-woff;base64,' +
+    buf.toString('base64')
+  );
+}
+
+function cssFile (dataURI) {
+  return [
+    '@font-face {',
+    '  font-family: Symbola;',
+    '  src: url(' + dataURI + ') format(\'woff\');',
+    '}'
+  ].join('\n');
+}
+
+if (process.argv.length < 3 || process.argv.length > 4) {
+  console.error('Usage: build-inline-css input.woff [output.css]');
+  process.exit(1);
+}
+
+var inputFilename = process.argv[2];
+var output = cssFile(toDataURI(fs.readFileSync(inputFilename)));
+
+if (process.argv.length === 3) {
+  console.log(output);
+} else {
+  var outputFilename = process.argv[3];
+  fs.writeFileSync(outputFilename, output, {encoding: 'utf-8'});
+}

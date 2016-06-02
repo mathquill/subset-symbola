@@ -1,5 +1,5 @@
 .PHONY: all
-all: convert-to-woff
+all: basic-css
 
 .PHONY: copy-symbola
 copy-symbola:
@@ -17,3 +17,7 @@ subset: copy-symbola
 convert-to-woff: subset
 	node_modules/.bin/ttf2woff build/Symbola.ttf build/Symbola.woff
 	node_modules/.bin/ttf2woff build/Symbola-basic.ttf build/Symbola-basic.woff
+
+.PHONY: basic-css
+basic-css: convert-to-woff
+	scripts/build-inline-css build/Symbola-basic.woff build/Symbola-basic.css
