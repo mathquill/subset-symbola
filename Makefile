@@ -7,16 +7,17 @@ copy-symbola:
 
 .PHONY: subset
 subset: copy-symbola
-	cd vendor/philip-font-optimizer && \
-	./subset.pl \
-		--chars='̱!()*+,-./0123456789:;<=>˂˃[]{|}~μ÷⟨⟩π–—∂∏∑−√∫≈≤≥' \
-		../../build/Symbola.ttf \
-		../../build/Symbola-basic.ttf
+	pyftsubset build/Symbola.ttf \
+		--text='̱!()*+,-./0123456789:;<=>˂˃[]{|}~μ÷⟨⟩π–—∂∏∑−√∫≈≤≥∥∦⟂' \
+		--output-file=build/Symbola-basic.woff \
+		--flavor=woff \
+		--layout-features='*' --glyph-names --symbol-cmap --legacy-cmap \
+    --notdef-glyph --notdef-outline --recommended-glyphs \
+    --name-IDs='*' --name-legacy --name-languages='*'
 
 .PHONY: convert-to-woff
 convert-to-woff: subset
 	node_modules/.bin/ttf2woff build/Symbola.ttf build/Symbola.woff
-	node_modules/.bin/ttf2woff build/Symbola-basic.ttf build/Symbola-basic.woff
 
 .PHONY: basic-css
 basic-css: convert-to-woff
