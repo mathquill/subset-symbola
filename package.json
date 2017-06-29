@@ -8,7 +8,7 @@
   },
   "author": "",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "ttf2woff": "^2.0.1"
   }
 }
