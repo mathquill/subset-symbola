@@ -1,6 +1,11 @@
 # subset-symbola
 Generate a subset of the [Symbola](http://users.teilar.gr/~g1951d/) font suitable for mathquill-basic.
 
+## Install
+```
+yarn
+```
+
 ## Build Instructions
 
 Just run `make`.
