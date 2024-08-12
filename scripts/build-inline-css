@@ -3,7 +3,7 @@ var fs = require('fs');
 
 function toDataURI (buf) {
   return (
-    'data:application/font-woff;base64,' +
+    'data:application/font-woff2;base64,' +
     buf.toString('base64')
   );
 }
@@ -12,13 +12,13 @@ function cssFile (dataURI) {
   return [
     '@font-face {',
     '  font-family: Symbola;',
-    '  src: url(' + dataURI + ') format(\'woff\');',
+    '  src: url(' + dataURI + ') format(\'woff2\');',
     '}'
   ].join('\n');
 }
 
 if (process.argv.length < 3 || process.argv.length > 4) {
-  console.error('Usage: build-inline-css input.woff [output.css]');
+  console.error('Usage: build-inline-css input.woff2 [output.css]');
   process.exit(1);
 }
 

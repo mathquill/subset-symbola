@@ -35,4 +35,4 @@ convert-to-woff2: subset
 
 .PHONY: basic-css
 basic-css: subset
-	scripts/build-inline-css build/Symbola-basic.woff build/Symbola-basic.css
+	scripts/build-inline-css build/Symbola-basic.woff2 build/Symbola-basic.css
