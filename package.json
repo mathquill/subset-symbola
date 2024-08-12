@@ -10,5 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "ttf2woff": "^2.0.1"
+  },
+  "devDependencies": {
+    "ttf2woff2": "^6.0.1"
   }
 }

@@ -1,5 +1,5 @@
 .PHONY: all
-all: basic-css convert-to-woff
+all: basic-css convert-to-woff convert-to-woff2
 
 .PHONY: clean
 clean:
@@ -23,10 +23,15 @@ SUBSET_OPTIONS=\
 subset: copy-symbola
 	pyftsubset build/Symbola.ttf --output-file=build/Symbola-basic.ttf $(SUBSET_OPTIONS)
 	pyftsubset build/Symbola.ttf --flavor=woff --output-file=build/Symbola-basic.woff $(SUBSET_OPTIONS)
+	pyftsubset build/Symbola.ttf --flavor=woff2 --output-file=build/Symbola-basic.woff2 $(SUBSET_OPTIONS)
 
 .PHONY: convert-to-woff
 convert-to-woff: subset
 	node_modules/.bin/ttf2woff build/Symbola.ttf build/Symbola.woff
+
+.PHONY: convert-to-woff2
+convert-to-woff2: subset
+	cat build/Symbola.ttf | npx ttf2woff2 > build/Symbola.woff2
 
 .PHONY: basic-css
 basic-css: subset
