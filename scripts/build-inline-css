@@ -3,7 +3,7 @@ var fs = require('fs');
 
 function toDataURI (buf) {
   return (
-    'data:application/font-woff2;base64,' +
+    'data:font/woff2;base64,' +
     buf.toString('base64')
   );
 }
