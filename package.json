@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "ttf2eot": "^3.1.0",
     "ttf2woff": "^2.0.1"
   },
   "devDependencies": {

@@ -19,11 +19,14 @@ SUBSET_OPTIONS=\
 	--notdef-glyph --notdef-outline --recommended-glyphs \
   --name-IDs='*' --name-legacy --name-languages='*'
 
+# Note: EOT is not supported by pyftsubset, so we are creating the .eot version by converting the 
+# .ttf subset
 .PHONY: subset
 subset: copy-symbola
 	pyftsubset build/Symbola.ttf --output-file=build/Symbola-basic.ttf $(SUBSET_OPTIONS)
 	pyftsubset build/Symbola.ttf --flavor=woff --output-file=build/Symbola-basic.woff $(SUBSET_OPTIONS)
 	pyftsubset build/Symbola.ttf --flavor=woff2 --output-file=build/Symbola-basic.woff2 $(SUBSET_OPTIONS)
+	npx ttf2eot build/Symbola-basic.ttf build/Symbola-basic.eot
 
 .PHONY: convert-to-woff
 convert-to-woff: subset
