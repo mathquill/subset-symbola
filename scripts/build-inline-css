@@ -12,7 +12,8 @@ function cssFile (dataURI) {
   return [
     '@font-face {',
     '  font-family: Symbola;',
-    '  src: url(' + dataURI + ') format(\'woff2\');',
+    '  src: url(' + dataURI + ')',
+    '    format(\'woff2\');',
     '}'
   ].join('\n');
 }
