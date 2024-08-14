@@ -13,7 +13,7 @@ copy-symbola:
 # --verbose option, which explains exactly which glyphs are making it
 # into the subset, and why
 SUBSET_OPTIONS=\
-	--text=' !()*+,-./0123456789:;<=>˂˃[]{|}~μ÷⟨⟩π–—∂∏∑−√∫≈≤≥∥∦⟂' \
+	--text=' !()*+,-./0123456789:;<=>˂˃[]{|}~μ÷⟨⟩π–—∂∏∑−√∫≈≤≥∥∦⟂□△◯▱≅≇∠≁' \
 	--unicodes='331' \
 	--layout-features='*' --glyph-names --symbol-cmap --legacy-cmap \
 	--notdef-glyph --notdef-outline --recommended-glyphs \
